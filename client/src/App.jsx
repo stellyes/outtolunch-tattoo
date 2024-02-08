@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 
 const App = () => {
     return (
-        <ApolloProvider client={client}>
+        <Container>
             <Outlet />
-        </ApolloProvider>
+        </Container>
     );
 };
 
