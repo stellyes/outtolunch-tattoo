@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(./assets/images/bg.jpg) no-repeat center center fixed;
+  background: url(./assets/images/bg.png) no-repeat center center fixed;
 }
 
 .flash-title,
@@ -12,15 +12,22 @@ body {
 }
 
 .home {
-  height: 100svh;
+  height: 95svh;
 }
 
 .home-title {
   font-weight: 300;
   rotate: -90deg;
   width: 100%;
-  margin-left: 45%;
+  margin-left: 35%;
   margin-right: -45%;
+}
+
+.subtitle {
+  font-family: "bookmania", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5em;
 }
 
 .home-title h1 {
@@ -36,7 +43,8 @@ body {
 }
 
 .home-menu {
-  margin-right: 45%;
+  margin-right: 40%;
+  margin-left: 2em;
 }
 
 .home-menu a {
@@ -44,6 +52,10 @@ body {
   text-decoration: none;
   color: #fff;
   transition: all 350ms ease;
+}
+
+.home-menu a:hover {
+  text-shadow: 0px 0px 10px #fff;
 }
 
 .flash-title h1 {
@@ -85,18 +97,6 @@ body {
 @media screen and (max-width: 695px) {
   .flash {
     column-count: 1;
-  }
-
-  .home-title {
-    margin-left: 13%;
-  }
-
-  .home-menu {
-    margin-left: 7%;
-  }
-
-  .home-title h1 {
-    margin-left: 0.2em;
   }
 
   .flash-title h1 {
