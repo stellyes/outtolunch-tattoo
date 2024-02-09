@@ -1,16 +1,41 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <Container>
-            <Row>
-                <Col>
-                    <h1>Welcome to Out to Lunch Tattoo</h1>
-                    <p>Get your dream tattoo with our talented artists!</p>
-                    <Button variant="primary">Book an Appointment</Button>
-                </Col>
-            </Row>
+        <Container className='home d-flex justify-content-center align-items-center'>
+            <Col xs={2} className='home-title d-flex flex-column justify-content-center align-items-center'>
+                <h1>OUT TO LUNCH</h1>
+                <div className='bar'></div>
+            </Col>
+            <Col xs={8} className='home-menu'>
+                <Row className="my-5">
+                    <Link to="/flash">
+                        <p>FLASH</p>
+                    </Link>
+                </Row>
+                <Row className="my-5">
+                    <Link to="/portfolio">
+                        <p>TATTOOS</p>
+                    </Link>
+                </Row>
+                <Row className="my-5">
+                    <Link to="/booking">
+                        <p>BOOKING</p>
+                    </Link>
+                </Row>
+                <Row className="my-5">
+                    <Link to="/about">
+                        <p>ABOUT</p>
+                    </Link>
+                </Row>
+                <Row className="mt-5 mb-4">
+                    <Link to="/contact">
+                        <p>CONTACT</p>
+                    </Link>
+                </Row>
+            </Col>
         </Container>
     );
 };
