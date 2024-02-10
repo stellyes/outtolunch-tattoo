@@ -202,7 +202,9 @@ const Flash = () => {
             <Container className="flash-title my-3">
                 <Row className="d-flex justify-content-center align-items-center">
                     <Col>
-                        <Link to="/" style={{ color: "#FFF" }}><SlArrowLeft /></Link>
+                        <Link to="/" style={{ color: "#FFF" }}>
+                            <SlArrowLeft />
+                        </Link>
                     </Col>
                     <Col className='mb-0 text-end title-text'>
                         <h1>FLASH</h1>

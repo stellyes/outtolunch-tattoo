@@ -4,11 +4,16 @@ body {
   background: url(./assets/images/bg.png) no-repeat center center fixed;
 }
 
+svg {
+  scale: 1.2;
+}
+
+.booking-title,
 .flash-title,
 .home {
   font-family: "colt-soft", serif;
   color: #fff;
-  text-shadow: 0px 0px 10px #00000080;
+  text-shadow: 0px 0px 10px #000000;
 }
 
 .home {

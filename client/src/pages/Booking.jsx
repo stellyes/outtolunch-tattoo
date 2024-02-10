@@ -8,22 +8,32 @@ import DatePicker from 'react-datepicker'
 import { Link } from 'react-router-dom'
 import { SlArrowLeft } from "react-icons/sl";
 
-const Contact = () => {
+import "react-datepicker/dist/react-datepicker.css";
+
+const Booking = () => {
     const [startDate, setStartDate] = useState(new Date());
 
 
     return (
         <Container>
-            <Row className="d-flex justify-content-center align-items-center">
+            <Row className="booking-title d-flex justify-content-center align-items-center">
                 <Col>
                     <Link to="/" style={{ color: "#FFF" }}><SlArrowLeft /></Link>
                 </Col>
-                <Col className='mb-0 text-end title-text'>
-                    <h1>FLASH</h1>
+                <Col className='my-2 text-end title-text'>
+                    <h1 className='my-3'>BOOKING</h1>
                 </Col>
+            </Row>
+            <Row className="booking-form d-flex justify-content-center align-items-center">
+                <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    showTimeSelect
+                    dateFormat="Pp"
+                />
             </Row>
         </Container>
     )
 };
 
-export default Contact;
+export default Booking;
