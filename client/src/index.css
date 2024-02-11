@@ -1,11 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(./assets/images/bg.png) no-repeat center center fixed;
 }
 
 svg {
   scale: 1.2;
+}
+
+#bg {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./assets/images/bg.png);
 }
 
 .booking-title,
@@ -24,7 +33,7 @@ svg {
   font-weight: 300;
   rotate: -90deg;
   width: 100%;
-  margin-left: 35%;
+  margin-left: 40%;
   margin-right: -45%;
 }
 
@@ -49,7 +58,7 @@ svg {
 
 .home-menu {
   margin-right: 40%;
-  margin-left: 2em;
+  margin-left: 1em;
 }
 
 .home-menu a {
@@ -97,6 +106,10 @@ svg {
   .flash-title h1 {
     font-size: 2.2em;
   }
+
+  .home-title {
+    margin-left: 30%;
+  }
 }
 
 @media screen and (max-width: 695px) {
@@ -106,5 +119,9 @@ svg {
 
   .flash-title h1 {
     font-size: 2em;
+  }
+
+  .home-title {
+    margin-left: 8%;
   }
 }
