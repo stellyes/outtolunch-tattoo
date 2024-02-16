@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { SlArrowLeft } from "react-icons/sl";
 
 const Booking = () => {
-    const [month, setMonth] = useState('');
+    const [month, setMonth] = useState('Month');
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -47,6 +47,8 @@ const Booking = () => {
                             <Container className="d-flex flex-row">
                                 <Form.Select
                                     className="month-select"
+                                    as="select"
+                                    value={month}
                                     onChange={() => setMonth('')}
                                 >
                                     <option>Month</option>
@@ -63,7 +65,7 @@ const Booking = () => {
                                     <option>November</option>
                                     <option>December</option>
                                 </Form.Select>
-                                <Form.Select disabled className='day-select'>
+                                <Form.Select disabled={month === "Month"} className='day-select'>
                                     <option>Day</option>
 
                                 </Form.Select>

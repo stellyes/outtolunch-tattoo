@@ -144,8 +144,12 @@ input {
   }
 
   .home-title {
-    margin-left: 8%;
+    margin-left: 1%;
     width: auto;
     max-width: 150%;
+  }
+
+  .home-menu {
+    margin-left: -5%;
   }
 }
