@@ -145,5 +145,7 @@ input {
 
   .home-title {
     margin-left: 8%;
+    width: auto;
+    max-width: 150%;
   }
 }
