@@ -12,10 +12,42 @@ import { SlArrowLeft } from "react-icons/sl";
 
 const Booking = () => {
     const [month, setMonth] = useState('Month');
+    const [day, setDay] = useState("Day");
+
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         console.log('form submitted');
+    };
+
+    const handleDayPick = (selectedMonth) => {
+        switch (selectedMonth) {
+            case "Month":
+                return [<option key="default">Day</option>];
+            case "January":
+            case "March":
+            case "May":
+            case "July":
+            case "August":
+            case "October":
+            case "December":
+                return Array.from({ length: 31 }, (_, index) => (
+                    <option key={index + 1}>{index + 1}</option>
+                ));
+            case "April":
+            case "June":
+            case "September":
+            case "November":
+                return Array.from({ length: 30 }, (_, index) => (
+                    <option key={index + 1}>{index + 1}</option>
+                ));
+            case "February":
+                return Array.from({ length: 28 }, (_, index) => (
+                    <option key={index + 1}>{index + 1}</option>
+                ));
+            default:
+                return [];
+        }
     };
 
     return (
@@ -49,7 +81,7 @@ const Booking = () => {
                                     className="month-select"
                                     as="select"
                                     value={month}
-                                    onChange={() => setMonth('')}
+                                    onChange={(e) => setMonth(e.target.value)}
                                 >
                                     <option>Month</option>
                                     <option>January</option>
@@ -66,11 +98,28 @@ const Booking = () => {
                                     <option>December</option>
                                 </Form.Select>
                                 <Form.Select disabled={month === "Month"} className='day-select'>
-                                    <option>Day</option>
-
+                                    {handleDayPick(month)}
                                 </Form.Select>
-                                <Form.Select disabled className='time-select'>
+                                <Form.Select disabled={day === "Day"} className='time-select'>
                                     <option>Time</option>
+                                    <option>11:00</option>
+                                    <option>11:30</option>
+                                    <option>12:00</option>
+                                    <option>11:30</option>
+                                    <option>1:00</option>
+                                    <option>1:30</option>
+                                    <option>2:00</option>
+                                    <option>2:30</option>
+                                    <option>3:00</option>
+                                    <option>3:30</option>
+                                    <option>4:00</option>
+                                    <option>4:30</option>
+                                    <option>5:00</option>
+                                    <option>5:30</option>
+                                    <option>6:00</option>
+                                    <option>6:30</option>
+                                    <option>7:00</option>
+
                                 </Form.Select>
                             </Container>
 
