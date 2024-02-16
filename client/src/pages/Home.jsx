@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <Container className='home d-flex justify-content-center align-items-center'>
-            <Col xs={2} className='home-title d-flex flex-column justify-content-center align-items-center'>
+        <Container className='home d-flex justify-content-center align-items-center p-0'>
+            <Col xs={2} className='home-title d-flex flex-column justify-content-center align-items-center mr-0'>
                 <h1 className='mb-2'>OUT TO LUNCH</h1>
                 <div className='bar'></div>
             </Col>
-            <Col xs={8} className='home-menu'>
+            <Col xs={8} className='home-menu ml-0'>
                 <Row className="my-5">
                     <Link to="/flash">
                         <p>FLASH</p>
