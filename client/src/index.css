@@ -100,7 +100,6 @@ input {
 }
 
 .portfolio-text {
-  font-family: "ten-oldstyle-variable", sans-serif;
   font-size: 1.4em;
 }
 
@@ -117,6 +116,13 @@ input {
 
 .booking-form .form-control {
   font-style: italic;
+}
+
+.booking-details,
+.booking-info {
+  background-color: #00000060;
+  border-radius: 15px;
+  color: #fff;
 }
 
 @media screen and (max-width: 1007px) {
