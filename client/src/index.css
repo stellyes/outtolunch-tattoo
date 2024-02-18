@@ -120,9 +120,17 @@ input {
 
 .booking-details,
 .booking-info {
-  background-color: #00000060;
+  background-color: #00000070;
   border-radius: 15px;
   color: #fff;
+}
+
+.booking-submit {
+  width: 100%;
+}
+
+.booking-submit:hover {
+  background-color: #000;
 }
 
 @media screen and (max-width: 1007px) {
