@@ -125,12 +125,31 @@ input {
   color: #fff;
 }
 
+.booking-info p {
+  font-size: 1.1em;
+}
+
 .booking-submit {
   width: 100%;
 }
 
 .booking-submit:hover {
   background-color: #000;
+}
+
+.portfolio-pop-up {
+  position: fixed;
+  width: 45%;
+  height: 35%;
+  z-index: -5;
+  left: 27%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.portfolio-pop-up.show {
+  opacity: 1;
+  z-index: 1;
 }
 
 @media screen and (max-width: 1007px) {

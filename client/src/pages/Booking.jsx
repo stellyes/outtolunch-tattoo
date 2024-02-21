@@ -81,8 +81,8 @@ const Booking = () => {
             </Row>
             <Row className="booking-form">
                 <Col lg={5} md={12} className="my-3 mx-auto booking-info d-flex flex-column justify-content-center align-items-center">
-                    <h1 className='my-3 text-center'>Schedule your appointment!</h1>
-                    <p className='text-center'>Fill out the form below to begin the scheduling process! All bookings are handled directly by Luke (the tattoo artist), so please be patient when waiting for your response. You should receive communication about your appointment within 72 hours.</p>
+                    <h1 className='mt-3 mx-0 text-center'>Schedule your appointment!</h1>
+                    <p className='text-center mx-4 mt-3'>Fill out the form below to begin the scheduling process! All bookings are handled directly by Luke (the tattoo artist), so please be patient when waiting for your response. You should receive communication about your appointment within 72 hours.</p>
                 </Col>
                 <Col lg={5} md={12} className="my-1 mx-auto booking-details d-flex flex-column align-items-end">
                     <Form style={{ width: "100%" }}>
@@ -276,7 +276,7 @@ const Booking = () => {
                         <Form.Group className='d-flex justify-content-center align-items-center'>
                             <Button
                                 variant="secondary"
-                                className='booking-submit'
+                                className='booking-submit my-3'
                                 onClick={() => handleFormSubmit}
                             >
                                 Submit
