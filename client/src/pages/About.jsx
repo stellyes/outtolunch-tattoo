@@ -59,7 +59,7 @@ const About = () => {
                     </Col>
                 </Row>
             </Container>
-            <Container className='d-flex flex-column align-items-center justify-content-center my-5 p-5' >
+            <Container className='d-flex flex-column align-items-center justify-content-center' >
                 <h1 className='about-text my-5 py-5 text-center px-3'>{scrambleText()}</h1>
             </Container>
         </Container>
