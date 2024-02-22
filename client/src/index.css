@@ -11,6 +11,10 @@ input {
   width: 100rem;
 }
 
+a {
+  text-decoration: none;
+}
+
 #bg {
   z-index: -1;
   position: fixed;
@@ -138,13 +142,41 @@ input {
 }
 
 .portfolio-pop-up {
+  font-family: "colt-soft", serif;
+  color: #fff;
   position: fixed;
-  width: 45%;
-  height: 35%;
-  z-index: -5;
-  left: 27%;
+  width: 80vw;
+  height: 60vh;
+  left: 10%;
+  top: 10%;
+  z-index: -1;
+  background-color: #00000080;
+  border: 3px solid #fffffff0;
+  border-radius: 20px;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+.pop-up-content {
+  width: 95%;
+  height: 100%;
+}
+
+.pop-up-image {
+  border-radius: 10px;
+  min-height: 28em;
+  max-width: 80%;
+  margin: auto;
+  background-position: center;
+  background-size: cover;
+}
+
+.pop-up-text {
+  width: 100%;
+}
+
+.pop-up-text p {
+  margin: 1em auto;
 }
 
 .portfolio-pop-up.show {
@@ -163,6 +195,18 @@ input {
 
   .home-title {
     margin-left: 30%;
+  }
+
+  .pop-up-image {
+    min-height: 38em;
+  }
+
+  .pop-up-text p {
+    scale: 0.9;
+  }
+
+  .portfolio-pop-up {
+    height: 60vh;
   }
 }
 
@@ -184,5 +228,71 @@ input {
 
   .home-menu {
     margin-left: -5%;
+  }
+
+  .pop-up-text h4 {
+    font-size: medium;
+  }
+
+  .pop-up-text p {
+    font-size: smaller;
+  }
+
+  .pop-up-image {
+    min-height: 18em;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .pop-up-text h4 {
+    font-size: small;
+  }
+
+  .pop-up-text p {
+    font-size: x-small;
+  }
+
+  .pop-up-text button {
+    font-size: medium;
+  }
+}
+
+@media screen and (max-height: 956px) {
+  .portfolio-pop-up {
+    height: 68vh;
+  }
+
+  .pop-up-image {
+    min-height: 23em;
+  }
+}
+
+@media screen and (max-height: 844px) {
+  .portfolio-pop-up {
+    height: 68vh;
+  }
+}
+
+@media screen and (max-height: 740px) {
+  .portfolio-pop-up {
+    height: 77vh;
+  }
+
+  .portfolio-pop-up {
+    top: 8%;
+  }
+
+  .pop-up-image {
+    min-height: 20em;
+  }
+}
+
+@media screen and (max-height: 667px) {
+  .portfolio-pop-up {
+    height: 85vh;
+  }
+
+  .portfolio-pop-up {
+    top: 5%;
   }
 }
