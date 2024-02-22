@@ -27,6 +27,8 @@ a {
 
 .booking-title,
 .flash-title,
+.contact-title,
+.about-title,
 .home {
   font-family: "colt-soft", serif;
   color: #fff;
@@ -83,6 +85,8 @@ a {
   text-shadow: 0px 0px 10px #fff;
 }
 
+.about-title h1,
+.contact-title h1,
 .flash-title h1 {
   margin-bottom: -3%;
   letter-spacing: 0.1em;
@@ -140,6 +144,24 @@ a {
 
 .booking-submit:hover {
   background-color: #000;
+}
+
+.booking-check {
+  background-color: #00000080;
+  border: 3px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  font-family: "bookmania", serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.booking-check h3 {
+  font-size: large;
+  font-family: "colt-soft", serif;
+}
+
+.booking-check:hover {
+  box-shadow: 0px 0px 10px #fff;
 }
 
 .portfolio-pop-up {
@@ -212,12 +234,24 @@ a {
   text-shadow: 1px 1px 6px #fff;
 }
 
+.about-text {
+  max-width: 700px;
+  color: #fff;
+  letter-spacing: 0.2em;
+  background-color: #00000080;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  margin: auto;
+}
+
 @media screen and (max-width: 1007px) {
   .flash {
     column-count: 2;
   }
 
-  .flash-title h1 {
+  .flash-title h1,
+  .about-title h1,
+  .contact-title h1 {
     font-size: 2.2em;
   }
 
@@ -244,7 +278,9 @@ a {
   }
 
   .home-title h1,
-  .flash-title h1 {
+  .flash-title h1,
+  .contact-title h1,
+  .about-title h1 {
     font-size: 2em;
   }
 
@@ -268,6 +304,10 @@ a {
 
   .pop-up-image {
     min-height: 18em;
+  }
+
+  .booking-check h3 {
+    font-size: medium;
   }
 }
 
