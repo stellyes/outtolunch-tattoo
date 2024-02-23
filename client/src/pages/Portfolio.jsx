@@ -27,16 +27,16 @@ const Portfolio = () => {
                     setPopUpImage("");
                 }}
             >
-                <Row className='pop-up-content mx-auto d-flex flex-row align-items-center'>
+                <Row className='pop-up-content mx-auto d-flex flex-row align-items-center my-auto'>
                     <Col
                         lg={5} md={12}
-                        className='pop-up-image my-2'
+                        className='pop-up-image mt-2 mb-0 p-0'
                         style={{ backgroundImage: `url(${popUpImage})` }}
                     >
                     </Col>
                     <Col
                         lg={5} md={12}
-                        className='pop-up-text my-3 text-center d-flex flex-column align-items-center'
+                        className='pop-up-text mb-3 text-center d-flex flex-column align-items-center'
                     >
                         <h4 className='mt-0 mb-1' style={{ width: "100%" }}>Like this tattoo?</h4>
                         <p style={{ fontFamily: `"bookmania", serif` }}>If you'd like to schedule an appointment, click the link below to start the booking process!</p>
