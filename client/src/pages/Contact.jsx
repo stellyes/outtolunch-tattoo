@@ -2,9 +2,12 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 import { Link } from 'react-router-dom'
 import { SlArrowLeft } from 'react-icons/sl'
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 
 const Contact = () => {
     return (
@@ -31,8 +34,36 @@ const Contact = () => {
                     </Row>
                 </Container>
             </Link>
-            <Container className='contact'>
+            <Container className='contact my-4'>
+                <h3 className='contact-title text-center mt-3 mb-0'>Socials</h3>
+                <Container className='socials d-flex justify-content-center my-5'>
+                    <FaInstagram />
+                    <FaTiktok />
+                </Container>
 
+            </Container>
+            <Container className='contact my-4'>
+                <h3 className='contact-title text-center mt-3 mb-0'>Contact Form</h3>
+                <Form className='my-3'>
+                    <Form.Group controlId='name' className='mb-3'>
+                        <Form.Label>Name <span style={{ color: "#F66" }}>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="What's your name?" />
+                    </Form.Group>
+                    <Form.Group controlId='email' className='my-3'>
+                        <Form.Label>Email <span style={{ color: "#F66" }}>*</span></Form.Label>
+                        <Form.Control type="email" placeholder="What's your email?" />
+                    </Form.Group>
+                    <Form.Group controlId='subject' className='my-3'>
+                        <Form.Label>Subject</Form.Label>
+                        <Form.Control type="text" placeholder="What's up?" />
+                    </Form.Group>
+                    <Form.Group controlId='message' className='my-3'>
+                        <Form.Label>Message <span style={{ color: "#F66" }}>*</span></Form.Label>
+                        <Form.Control type="text" placeholder="What's on your mind?" as="textarea" rows={5} />
+                    </Form.Group>
+                    <Button type="submit" className='my-3' style={{ width: "80%", margin: "auto 10%" }}>Send!</Button>
+
+                </Form>
             </Container>
         </Container>
     )

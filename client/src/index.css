@@ -244,6 +244,20 @@ a {
   margin: auto;
 }
 
+.contact {
+  width: 100%;
+  max-width: 700px;
+  background-color: #00000080;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+}
+
+.socials svg {
+  scale: 3;
+  margin: auto 10%;
+}
+
 @media screen and (max-width: 1007px) {
   .flash {
     column-count: 2;
