@@ -16,6 +16,12 @@ const Contact = () => {
     const [message, setMessage] = useState("");
     const [error, setError] = useState({ display: "primary", message: "Send!" })
 
+    function displayError(buttonType, errorMessage) {
+        setError({ display: buttonType, message: errorMessage })
+        setTimeout(() => {
+            setError({ display: "primary", message: "Send!" });
+        }, 3000);
+    }
 
     const contactSubmit = async (e) => {
         e.preventDefault();
@@ -33,26 +39,17 @@ const Contact = () => {
         };
 
         if (!name) {
-            setError({ display: "danger", message: "Please include a name" })
-            setTimeout(() => {
-                setError({ display: "primary", message: "Send!" });
-            }, 3000);
+            displayError("danger", "Please provide a name");
             return;
         };
 
         if (!email) {
-            setError({ display: "danger", message: "Please include an email" })
-            setTimeout(() => {
-                setError({ display: "primary", message: "Send!" });
-            }, 3000);
+            displayError("danger", "Please provide an email");
             return;
         };
 
         if (!message) {
-            setError({ display: "danger", message: "Please include a message" })
-            setTimeout(() => {
-                setError({ display: "primary", message: "Send!" });
-            }, 3000);
+            displayError("danger", "Please provide a message");
             return;
         };
 
@@ -65,40 +62,15 @@ const Contact = () => {
                 body: JSON.stringify(data)
             }).then(function (res) {
                 if (res.ok) {
-                    setError({ display: "success", message: "Message sent!" })
-                    setTimeout(() => {
-                        setError({ display: "primary", message: "Send!" });
-                    }, 3000);
+                    displayError("success", "Message Sent!")
                 } else {
-                    setError({ display: "danger", message: "Failed to send. Please try again." })
-                    setTimeout(() => {
-                        setError({ display: "primary", message: "Send!" });
-                    }, 3000);
+                    displayError("danger", "Message failed. Please try again.")
                 }
-
             });
-
-            console.log("email sent!")
         } catch (err) {
+            displayError("danger", "500 Internal Error. Contact site administrator.")
             console.log(err)
         }
-
-        // ({
-        //     method: "POST",
-        //     url: ,
-        //     data: JSON.stringify(data)
-        // }).then(function (response) {
-        //     setError({ display: "success", message: "Message sent!" })
-        //     setTimeout(() => {
-        //         setError({ display: "primary", message: "Send!" });
-        //     }, 3000);
-        // }).catch(function (error) {
-        //     setError({ display: "danger", message: error })
-        //     setTimeout(() => {
-        //         setError({ display: "primary", message: "Send!" });
-        //     }, 3000);
-        // })
-
     };
 
     return (
