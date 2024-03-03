@@ -16,27 +16,21 @@ const Contact = () => {
     const [message, setMessage] = useState("");
     const [error, setError] = useState({ display: "primary", message: "Send!" })
 
-    emailjs.init({
-        publicKey: '4l_2sDkwji3FrVMRX',
-        // Do not allow headless browsers
-        blockHeadless: true,
-        blockList: {
-            // Block the suspended emails
-            list: ['foo@emailjs.com', 'bar@emailjs.com'],
-            // The variable contains the email address
-            watchVariable: 'email',
-        },
-        limitRate: {
-            // Set the limit rate for the application
-            id: 'app',
-            // Allow 1 request per 30min
-            throttle: 1800000,
-        },
-    });
 
-    const contactSubmit = (e) => {
+    const contactSubmit = async (e) => {
         e.preventDefault();
-        const data = { name, email, message };
+        const formParams = {
+            "from_name": name,
+            "message": message,
+            "reply_to": email,
+        };
+
+        const data = {
+            "service_id": "service_n0f36c4",
+            "template_id": "template_6pvgw1d",
+            "user_id": "4l_2sDkwji3FrVMRX",
+            "template_params": formParams
+        };
 
         if (!name) {
             setError({ display: "danger", message: "Please include a name" })
@@ -62,7 +56,49 @@ const Contact = () => {
             return;
         };
 
-        console.log(data);
+        try {
+            const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(function (res) {
+                if (res.ok) {
+                    setError({ display: "success", message: "Message sent!" })
+                    setTimeout(() => {
+                        setError({ display: "primary", message: "Send!" });
+                    }, 3000);
+                } else {
+                    setError({ display: "danger", message: "Failed to send. Please try again." })
+                    setTimeout(() => {
+                        setError({ display: "primary", message: "Send!" });
+                    }, 3000);
+                }
+
+            });
+
+            console.log("email sent!")
+        } catch (err) {
+            console.log(err)
+        }
+
+        // ({
+        //     method: "POST",
+        //     url: ,
+        //     data: JSON.stringify(data)
+        // }).then(function (response) {
+        //     setError({ display: "success", message: "Message sent!" })
+        //     setTimeout(() => {
+        //         setError({ display: "primary", message: "Send!" });
+        //     }, 3000);
+        // }).catch(function (error) {
+        //     setError({ display: "danger", message: error })
+        //     setTimeout(() => {
+        //         setError({ display: "primary", message: "Send!" });
+        //     }, 3000);
+        // })
+
     };
 
     return (
