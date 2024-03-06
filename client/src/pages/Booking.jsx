@@ -21,21 +21,88 @@ const Booking = () => {
     const [time2, setTime2] = useState("Time")
     const [month3, setMonth3] = useState('Month');
     const [day3, setDay3] = useState("Day");
-    const [time3, setTime3] = useState("Time")
+    const [time3, setTime3] = useState("Time");
+    const [error, setError] = useState({ display: "secondary", message: "Submit" })
 
+    // Sets button color to red and text to error message for
+    // 3 seconds before reverting to prior state
+    function handleError(buttonType, errorMessage) {
+        setError({ display: buttonType, message: errorMessage })
+        setTimeout(() => {
+            setError({ display: "secondary", message: "Submit" });
+        }, 3000);
+    }
 
-    const handleFormSubmit = (e) => {
+    function formatDate(month, day, time) {
+        if (month === "Month" || day === "Day" || time === "Time") return "No date selected";
+        return `${month} ${day}, at ${time}`
+    }
+
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
         if (!name) {
-            console.error("Please provide a name");
+            handleError("danger", "Please provide a name");
+            return;
         }
 
         if (!contact) {
-
+            handleError("danger", "Please provide a contact");
+            return;
         }
-        data = {
-            name,
-            contact,
+
+        if (!description) {
+            handleError("danger", "Please provide a tattoo description");
+            return;
+        }
+
+        // Not a required entry field
+        if (notes == "") {
+            setNotes("No additional notes")
+        }
+
+        if (!time1) {
+            handleError("danger", "Provide at least one appointment time");
+            return;
+        }
+
+        const date1 = formatDate(month1, day1, time1);
+        const date2 = formatDate(month2, day2, time2);
+        const date3 = formatDate(month3, day3, time3);
+
+        const formData = {
+            "from_name": name,
+            "appointment_time_1": date1,
+            "appointment_time_2": date2,
+            "appointment_time_3": date3,
+            "tattoo_description": description,
+            "notes": notes,
+            "reply_to": contact
+        }
+
+        const data = {
+            "service_id": "service_n0f36c4",
+            "template_id": "template_kt5tu0i",
+            "user_id": "4l_2sDkwji3FrVMRX",
+            "template_params": formData
+        };
+
+        try {
+            const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(function (res) {
+                if (res.ok) {
+                    handleError("success", "Message Sent!")
+                } else {
+                    handleError("danger", "Message failed. Please try again.")
+                }
+            });
+        } catch (err) {
+            handleError("danger", "500 Internal Error. Contact site administrator.")
+            console.log(err)
         }
     };
 
@@ -88,11 +155,21 @@ const Booking = () => {
                     <Form style={{ width: "100%" }}>
                         <Form.Group className="my-3 px-0 d-flex flex-column" controlId="name">
                             <Form.Label className="mb-0 text-end">Name <span style={{ color: "#F66" }}>*</span></Form.Label>
-                            <Form.Control className="mt-0 pr-5" type="text" placeholder="What's your name?" />
+                            <Form.Control
+                                className="mt-0 pr-5"
+                                type="text"
+                                placeholder="What's your name?"
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </Form.Group>
                         <Form.Group className="px-0 d-flex flex-column my-2" controlId="contact">
                             <Form.Label className="mb-0 text-end">Email / Phone Number <span style={{ color: "#F66" }}>*</span></Form.Label>
-                            <Form.Control className="mt-0" type="text" placeholder="How can I get in touch?" />
+                            <Form.Control
+                                className="mt-0"
+                                type="text"
+                                placeholder="How can I get in touch?"
+                                onChange={(e) => setContact(e.target.value)}
+                            />
                         </Form.Group>
                         <Form.Group className='my-2 px-0 d-flex flex-column my-2'>
                             <Form.Label className="mb-0 text-end" >Appointment Times</Form.Label>
@@ -267,19 +344,29 @@ const Booking = () => {
                         </Form.Group>
                         <Form.Group className="my-3 px-0 d-flex flex-column" controlId="name">
                             <Form.Label className="mb-0 text-end">Tattoo Description</Form.Label>
-                            <Form.Control className="mt-0 pr-5" type="text" placeholder="Please provide a description of the tattoo you'd like" />
+                            <Form.Control
+                                className="mt-0 pr-5"
+                                type="text"
+                                placeholder="Please provide a description of the tattoo you'd like"
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
                         </Form.Group>
                         <Form.Group className="my-3 px-0 d-flex flex-column" controlId="name">
                             <Form.Label className="mb-0 text-end">Additional Notes</Form.Label>
-                            <Form.Control className="mt-0 pr-5" type="text" placeholder="Anything you'd like to mention beforehand?" />
+                            <Form.Control
+                                className="mt-0 pr-5"
+                                type="text"
+                                placeholder="Anything you'd like to mention beforehand?"
+                                onChange={(e) => setNotes(e.target.value)}
+                            />
                         </Form.Group>
                         <Form.Group className='d-flex justify-content-center align-items-center'>
                             <Button
-                                variant="secondary"
+                                variant={error.display}
                                 className='booking-submit my-3'
-                                onClick={() => handleFormSubmit}
+                                onClick={handleFormSubmit}
                             >
-                                Submit
+                                {error.message}
                             </Button>
                         </Form.Group>
                     </Form>

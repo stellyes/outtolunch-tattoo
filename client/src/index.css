@@ -143,6 +143,7 @@ a {
   width: 100%;
 }
 
+.contact-submit:hover,
 .booking-submit:hover {
   background-color: #000;
 }

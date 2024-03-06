@@ -14,12 +14,12 @@ const Contact = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const [error, setError] = useState({ display: "primary", message: "Send!" })
+    const [error, setError] = useState({ display: "secondary", message: "Send!" })
 
     function displayError(buttonType, errorMessage) {
         setError({ display: buttonType, message: errorMessage })
         setTimeout(() => {
-            setError({ display: "primary", message: "Send!" });
+            setError({ display: "secondary", message: "Send!" });
         }, 3000);
     }
 
@@ -136,7 +136,7 @@ const Contact = () => {
                     </Form.Group>
                     <Button
                         type="submit"
-                        className='my-3'
+                        className='my-3 contact-submit'
                         variant={error.display}
                         style={{ width: "80%", margin: "auto 10%" }}
                         onClick={contactSubmit}
