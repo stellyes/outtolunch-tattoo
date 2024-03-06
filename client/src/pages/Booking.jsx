@@ -172,7 +172,7 @@ const Booking = () => {
                             />
                         </Form.Group>
                         <Form.Group className='my-2 px-0 d-flex flex-column my-2'>
-                            <Form.Label className="mb-0 text-end" >Appointment Times</Form.Label>
+                            <Form.Label className="mb-0 text-end" >Appointment Times <span style={{ color: "#F66" }}>*</span></Form.Label>
                             <p className="text-center">Please enter at least one possible appointment time, up to 3, and we'll reach out in 72 hours to confirm your scheduling!</p>
                             <Container className="d-flex flex-row">
                                 <Form.Select
@@ -343,7 +343,7 @@ const Booking = () => {
                             </Container>
                         </Form.Group>
                         <Form.Group className="my-3 px-0 d-flex flex-column" controlId="name">
-                            <Form.Label className="mb-0 text-end">Tattoo Description</Form.Label>
+                            <Form.Label className="mb-0 text-end">Tattoo Description <span style={{ color: "#F66" }}>*</span></Form.Label>
                             <Form.Control
                                 className="mt-0 pr-5"
                                 type="text"
